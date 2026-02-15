@@ -38,7 +38,7 @@ New categories and topics are created automatically as the agent encounters them
 
 ## The Inbox Processor Agent
 
-The agent lives at `.claude/agents/inbox-processor.md`. It runs with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and processes your inbox autonomously:
+The inbox processor is available for both [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and [OpenCode](https://opencode.ai). It processes your inbox autonomously:
 
 - Classifies each note by category (book, podcast, personal, etc.) and topic
 - Cleans speech-to-text artifacts while preserving your voice and tone
@@ -47,11 +47,10 @@ The agent lives at `.claude/agents/inbox-processor.md`. It runs with [Claude Cod
 - Updates all indexes
 - Commits and pushes
 
-Run it with:
-
-```bash
-claude code --agent inbox-processor "process the inbox"
-```
+| Agent Tool | Agent Definition | Run Command |
+|------------|-----------------|-------------|
+| Claude Code | `.claude/agents/inbox-processor.md` | `claude code --agent inbox-processor "process the inbox"` |
+| OpenCode | `.opencode/agents/inbox-processor.md` | `opencode --agent inbox-processor "process the inbox"` |
 
 ## Setup
 
@@ -66,11 +65,18 @@ claude code --agent inbox-processor "process the inbox"
 
 ## Processing Your Notes
 
-The agent needs [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed on your machine. After capturing some notes:
+You need either [Claude Code](https://docs.anthropic.com/en/docs/claude-code) or [OpenCode](https://opencode.ai) installed on your machine. After capturing some notes:
 
+**With Claude Code:**
 ```bash
 cd your-notes-repo
 claude code --agent inbox-processor "process the inbox"
+```
+
+**With OpenCode:**
+```bash
+cd your-notes-repo
+opencode --agent inbox-processor "process the inbox"
 ```
 
 The agent pulls, processes all inbox files, commits, and pushes. No interaction required.
